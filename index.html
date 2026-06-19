@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Grovepin — Pin moments in any video</title>
+  <meta name="description" content="Timestamped note-taking for any video — YouTube, Vimeo, Coursera, Udemy, Loom and more. Press N to pin a moment, export as Markdown."/>
+  <meta property="og:title" content="Grovepin — Pin moments in any video"/>
+  <meta property="og:description" content="Timestamped note-taking for any video. No more pausing to open Notion."/>
+  <meta property="og:type" content="website"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:       #3B6D11;
+      --green-light: #EAF3DE;
+      --green-mid:   #97C459;
+      --text:        #1a1a18;
+      --muted:       #6b6b68;
+      --border:      #e8e8e6;
+      --bg:          #ffffff;
+      --bg-alt:      #f8f9f6;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: var(--green); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Nav ── */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px; border-bottom: 0.5px solid var(--border);
+      position: sticky; top: 0; background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px); z-index: 10;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; color: var(--text); }
+    .nav-logo svg { width: 22px; height: 22px; }
+    .nav-links { display: flex; align-items: center; gap: 24px; font-size: 13px; color: var(--muted); }
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 18px; border-radius: 6px; font-size: 13px;
+      font-weight: 500; cursor: pointer; transition: all 0.15s;
+      text-decoration: none !important;
+    }
+    .btn-primary { background: var(--green); color: #fff; }
+    .btn-primary:hover { background: #27500A; }
+    .btn-outline { border: 1px solid var(--border); color: var(--text); background: transparent; }
+    .btn-outline:hover { border-color: var(--green); color: var(--green); }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center; padding: 80px 24px 64px;
+      max-width: 680px; margin: 0 auto;
+    }
+    .hero-badge {
+      display: inline-block; background: var(--green-light); color: var(--green);
+      font-size: 12px; font-weight: 500; padding: 4px 12px;
+      border-radius: 99px; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px); font-weight: 700;
+      line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+    .hero h1 span { color: var(--green); }
+    .hero p {
+      font-size: 17px; color: var(--muted); max-width: 480px;
+      margin: 0 auto 32px; line-height: 1.65;
+    }
+    .hero-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .hero-actions .btn { padding: 12px 24px; font-size: 14px; }
+
+    /* ── Works on ── */
+    .platforms {
+      text-align: center; padding: 32px 24px;
+      border-top: 0.5px solid var(--border);
+      border-bottom: 0.5px solid var(--border);
+      background: var(--bg-alt);
+    }
+    .platforms p { font-size: 12px; color: var(--muted); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.07em; }
+    .platform-list { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+    .platform-list span { font-size: 13px; color: var(--muted); font-weight: 500; }
+
+    /* ── Features ── */
+    .features {
+      max-width: 960px; margin: 0 auto;
+      padding: 72px 24px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+    }
+    .feature { display: flex; flex-direction: column; gap: 10px; }
+    .feature-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: var(--green-light); display: flex;
+      align-items: center; justify-content: center;
+    }
+    .feature-icon svg { width: 20px; height: 20px; stroke: var(--green); }
+    .feature h3 { font-size: 15px; font-weight: 600; }
+    .feature p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+    /* ── How it works ── */
+    .how { background: var(--bg-alt); padding: 72px 24px; }
+    .how-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .how h2 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+    .how-sub { font-size: 15px; color: var(--muted); margin-bottom: 48px; }
+    .steps { display: flex; flex-direction: column; gap: 0; text-align: left; }
+    .step { display: flex; gap: 20px; padding: 20px 0; border-bottom: 0.5px solid var(--border); }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--green); color: #fff;
+      font-size: 13px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .step-text h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .step-text p { font-size: 14px; color: var(--muted); line-height: 1.55; }
+    kbd {
+      background: var(--border); padding: 1px 6px; border-radius: 4px;
+      font-size: 12px; font-family: monospace; border: 0.5px solid #ccc;
+    }
+
+    /* ── CTA ── */
+    .cta {
+      text-align: center; padding: 72px 24px;
+      max-width: 500px; margin: 0 auto;
+    }
+    .cta h2 { font-size: 28px; font-weight: 700; margin-bottom: 12px; }
+    .cta p { font-size: 15px; color: var(--muted); margin-bottom: 28px; }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 0.5px solid var(--border);
+      padding: 24px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      font-size: 12px; color: var(--muted); flex-wrap: wrap; gap: 10px;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--green); text-decoration: none; }
+    .footer-links { display: flex; gap: 20px; }
+
+    @media (max-width: 600px) {
+      nav { padding: 12px 20px; }
+      .nav-links { gap: 14px; }
+      footer { padding: 20px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">
+      <svg viewBox="0 0 32 32" fill="none">
+        <rect x="2" y="9" width="28" height="17" rx="3" fill="#97C459" fill-opacity="0.2"/>
+        <rect x="2" y="9" width="28" height="17" rx="3" stroke="#3B6D11" stroke-width="1.5"/>
+        <circle cx="14" cy="17.5" r="2" fill="#3B6D11"/>
+        <line x1="14" y1="9" x2="14" y2="26" stroke="#3B6D11" stroke-width="1" stroke-dasharray="2 2" stroke-opacity="0.5"/>
+        <line x1="14" y1="2" x2="14" y2="9" stroke="#3B6D11" stroke-width="1.3" stroke-linecap="round"/>
+        <line x1="10.5" y1="4.5" x2="14" y2="3" stroke="#3B6D11" stroke-width="1" stroke-linecap="round"/>
+        <line x1="17.5" y1="4.5" x2="14" y2="3" stroke="#3B6D11" stroke-width="1" stroke-linecap="round"/>
+        <line x1="11" y1="7" x2="14" y2="5.5" stroke="#3B6D11" stroke-width="1" stroke-linecap="round"/>
+        <line x1="17" y1="7" x2="14" y2="5.5" stroke="#3B6D11" stroke-width="1" stroke-linecap="round"/>
+      </svg>
+      Grovepin
+    </div>
+    <div class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#how">How it works</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="https://github.com/silvonix/grovepin" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <a href="https://chromewebstore.google.com/detail/grovepin" target="_blank" class="btn btn-primary">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Add to Chrome
+    </a>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">Free Chrome Extension</div>
+    <h1>Pin moments in<br/><span>any video</span></h1>
+    <p>Timestamped notes for YouTube, Vimeo, Coursera, Udemy, Loom and more. Press <kbd>N</kbd> to pin a thought — video pauses, you type, it resumes.</p>
+    <div class="hero-actions">
+      <a href="https://chromewebstore.google.com/detail/grovepin" target="_blank" class="btn btn-primary">Add to Chrome — it's free</a>
+      <a href="https://github.com/silvonix/grovepin" target="_blank" class="btn btn-outline">View on GitHub</a>
+    </div>
+  </section>
+
+  <div class="platforms">
+    <p>Works on</p>
+    <div class="platform-list">
+      <span>YouTube</span>
+      <span>Vimeo</span>
+      <span>Coursera</span>
+      <span>Udemy</span>
+      <span>Loom</span>
+      <span>LinkedIn Learning</span>
+      <span>Wistia</span>
+      <span>+ any HTML5 video</span>
+    </div>
+  </div>
+
+  <section class="features" id="features">
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <h3>Timestamped pins</h3>
+      <p>Press <kbd>N</kbd> on any video page. The video pauses, you type your thought, press Enter — video resumes exactly where it left off.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+      </div>
+      <h3>Works everywhere</h3>
+      <p>YouTube, Vimeo, Coursera, Udemy, Loom, LinkedIn Learning, Wistia — any platform with an HTML5 video player.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+      </div>
+      <h3>Jump back instantly</h3>
+      <p>Click any timestamp in your notes and the video seeks to that exact moment. Review your pins while the video plays.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+      </div>
+      <h3>AI summary</h3>
+      <p>After 7+ pins, let Claude summarise your notes into key points and revisit items. 10 free summaries per month — no API key needed.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      </div>
+      <h3>Export to Markdown</h3>
+      <p>Download your notes as a clean Markdown file. Paste into Notion, Obsidian, or any note-taking app you already use.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <h3>Private by default</h3>
+      <p>All notes stay on your device in local browser storage. Nothing is synced to any server. No account required.</p>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="how-inner">
+      <h2>How it works</h2>
+      <p class="how-sub">Three steps from install to your first pinned note</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <h4>Install the extension</h4>
+            <p>Add Grovepin to Chrome from the Web Store. No account, no sign-up. Takes 10 seconds.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <h4>Open any video and press <kbd>N</kbd></h4>
+            <p>The sidebar appears on the right. Press <kbd>N</kbd> at any moment to pin it. The video pauses while you type, resumes when you save.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <h4>Review, jump, export</h4>
+            <p>Click any timestamp to jump back. After 7+ pins, summarise with AI. Export your notes as Markdown anytime.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Start pinning moments</h2>
+    <p>Free forever. No account needed. Works on every video platform you already use.</p>
+    <a href="https://chromewebstore.google.com/detail/grovepin" target="_blank" class="btn btn-primary" style="font-size:15px;padding:14px 28px;">
+      Add Grovepin to Chrome
+    </a>
+  </section>
+
+  <footer>
+    <div>© 2026 Sylvora Labs</div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="https://github.com/silvonix/grovepin" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:hello@sylvoralabs.com?subject=Grovepin Feedback">Feedback</a>
+    </div>
+  </footer>
+
+</body>
+</html>
