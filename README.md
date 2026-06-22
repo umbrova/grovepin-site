@@ -2,7 +2,7 @@
 
 Landing page and privacy policy for [Grovepin](https://github.com/silvonix/grovepin).
 
-Hosted on Cloudflare Pages at [grovepin.pages.dev](https://grovepin.pages.dev)
+Hosted on Cloudflare Pages at [grovepin.silvonix.workers.dev](https://grovepin.silvonix.workers.dev/)
 
 ## Pages
 
