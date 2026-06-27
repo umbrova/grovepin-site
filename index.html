@@ -43,157 +43,105 @@
     .nav-links { display: flex; align-items: center; gap: 24px; font-size: 13px; color: var(--muted); }
     .nav-links a { color: var(--muted); }
     .nav-links a:hover { color: var(--text); text-decoration: none; }
+
     .btn {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 8px 18px; border-radius: 6px; font-size: 13px;
       font-weight: 500; cursor: pointer; transition: all 0.15s;
       text-decoration: none !important;
     }
-    .btn-primary { background: var(--green); color: #fff !important; }
-    .btn-primary:hover { background: #27500A; }
     .btn-outline { border: 1px solid var(--border); color: var(--text) !important; background: transparent; }
     .btn-outline:hover { border-color: var(--green); color: var(--green) !important; }
 
-    /* HERO */
-    .hero {
-      text-align: center; padding: 80px 24px 48px;
-      max-width: 680px; margin: 0 auto;
+    /* Disabled nav button */
+    .btn-disabled-nav {
+      display: inline-flex; align-items: center;
+      padding: 8px 18px; border-radius: 6px; font-size: 13px;
+      font-weight: 500; background: #EDEAE4; color: #9E9080;
+      cursor: not-allowed; user-select: none;
     }
+
+    /* Disabled hero CTA — matches original hero .btn sizing */
+    .btn-disabled-hero {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 12px 24px; border-radius: 6px; font-size: 14px;
+      font-weight: 500; background: #EDEAE4; color: #9E9080;
+      cursor: not-allowed; user-select: none;
+    }
+
+    /* Disabled CTA section button — matches original large CTA */
+    .btn-disabled-cta {
+      display: inline-flex; align-items: center;
+      font-size: 15px; padding: 14px 28px; border-radius: 6px;
+      font-weight: 500; background: #EDEAE4; color: #9E9080;
+      cursor: not-allowed; user-select: none;
+    }
+
+    .coming-soon-note {
+      margin-top: 10px; font-size: 12px; color: var(--green); font-weight: 500;
+      display: block; text-align: center;
+    }
+
+    /* HERO */
+    .hero { text-align: center; padding: 80px 24px 48px; max-width: 680px; margin: 0 auto; }
     .hero-badge {
       display: inline-block; background: var(--green-light); color: var(--green);
       font-size: 12px; font-weight: 500; padding: 4px 12px;
       border-radius: 99px; margin-bottom: 20px;
     }
-    .hero h1 {
-      font-size: clamp(32px, 5vw, 52px); font-weight: 700;
-      line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px;
-    }
+    .hero h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 16px; }
     .hero h1 span { color: var(--green); }
-    .hero p {
-      font-size: 17px; color: var(--muted); max-width: 480px;
-      margin: 0 auto 32px; line-height: 1.65;
-    }
-    .hero-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .hero-actions .btn { padding: 12px 24px; font-size: 14px; }
+    .hero p { font-size: 17px; color: var(--muted); max-width: 480px; margin: 0 auto 32px; line-height: 1.65; }
+    .hero-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; align-items: center; }
 
     /* HERO MOCKUP */
-    .hero-mockup {
-      max-width: 900px; margin: 0 auto; padding: 0 24px 56px;
-    }
-    .mockup-frame {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.06);
-    }
-    .mockup-bar {
-      background: #f0f0ee; border-bottom: 0.5px solid var(--border);
-      padding: 9px 14px; display: flex; align-items: center; gap: 10px;
-    }
+    .hero-mockup { max-width: 900px; margin: 0 auto; padding: 0 24px 56px; }
+    .mockup-frame { background: #fff; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 1px 3px rgba(0,0,0,0.06); }
+    .mockup-bar { background: #f0f0ee; border-bottom: 0.5px solid var(--border); padding: 9px 14px; display: flex; align-items: center; gap: 10px; }
     .mockup-dots { display: flex; gap: 5px; }
     .mockup-dots span { width: 10px; height: 10px; border-radius: 50%; background: #ddd; }
-    .mockup-url {
-      flex: 1; background: #fff; border: 0.5px solid var(--border);
-      border-radius: 5px; padding: 3px 10px;
-      font-size: 11px; color: var(--muted); text-align: center;
-    }
+    .mockup-url { flex: 1; background: #fff; border: 0.5px solid var(--border); border-radius: 5px; padding: 3px 10px; font-size: 11px; color: var(--muted); text-align: center; }
     .mockup-icons { display: flex; gap: 8px; opacity: 0.5; }
     .mockup-body { display: flex; height: 360px; }
-
-    /* Video side */
-    .mockup-video {
-      flex: 1; background: #fff; display: flex; flex-direction: column;
-      border-right: 0.5px solid var(--border);
-    }
-    .yt-nav {
-      padding: 8px 14px; display: flex; align-items: center; gap: 12px;
-      border-bottom: 0.5px solid var(--border); background: #fff;
-    }
+    .mockup-video { flex: 1; background: #fff; display: flex; flex-direction: column; border-right: 0.5px solid var(--border); }
+    .yt-nav { padding: 8px 14px; display: flex; align-items: center; gap: 12px; border-bottom: 0.5px solid var(--border); background: #fff; }
     .yt-logo { display: flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 600; color: var(--text); }
-    .yt-search {
-      flex: 1; max-width: 200px; background: #f8f8f8;
-      border: 0.5px solid var(--border); border-radius: 99px;
-      padding: 3px 12px; font-size: 11px; color: var(--muted);
-    }
+    .yt-search { flex: 1; max-width: 200px; background: #f8f8f8; border: 0.5px solid var(--border); border-radius: 99px; padding: 3px 12px; font-size: 11px; color: var(--muted); }
     .video-content { flex: 1; background: #0a0a0a; overflow: hidden; }
     .video-illustration { width: 100%; height: 100%; display: block; }
     .video-progress { background: #111; padding: 6px 10px 8px; }
     .progress-bar { height: 3px; background: rgba(255,255,255,0.15); border-radius: 2px; margin-bottom: 6px; }
-    .progress-fill {
-      width: 29%; height: 100%; background: #ff0000; border-radius: 2px;
-      position: relative;
-    }
-    .progress-fill::after {
-      content: ''; position: absolute; right: -4px; top: -3px;
-      width: 9px; height: 9px; border-radius: 50%; background: #ff0000;
-    }
+    .progress-fill { width: 29%; height: 100%; background: #ff0000; border-radius: 2px; position: relative; }
+    .progress-fill::after { content: ''; position: absolute; right: -4px; top: -3px; width: 9px; height: 9px; border-radius: 50%; background: #ff0000; }
     .video-controls { display: flex; align-items: center; gap: 8px; font-size: 10px; color: rgba(255,255,255,0.7); }
     .video-time { color: rgba(255,255,255,0.5); }
-
-    /* Grovepin sidebar */
-    .gp-sidebar {
-      width: 220px; background: #fff; display: flex; flex-direction: column; font-size: 12px;
-    }
-    .gp-header {
-      padding: 10px 12px 6px; display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 0.5px solid var(--border);
-    }
+    .gp-sidebar { width: 220px; background: #fff; display: flex; flex-direction: column; font-size: 12px; }
+    .gp-header { padding: 10px 12px 6px; display: flex; align-items: center; justify-content: space-between; border-bottom: 0.5px solid var(--border); }
     .gp-title { display: flex; align-items: center; gap: 5px; font-weight: 600; font-size: 12px; color: var(--text); }
-    .gp-count {
-      font-size: 10px; background: var(--green-light); color: var(--green);
-      padding: 1px 7px; border-radius: 99px; font-weight: 500;
-    }
-    .gp-session-title {
-      padding: 6px 12px; font-size: 10px; font-weight: 500; color: var(--muted);
-      border-bottom: 0.5px solid var(--border);
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-    }
+    .gp-count { font-size: 10px; background: var(--green-light); color: var(--green); padding: 1px 7px; border-radius: 99px; font-weight: 500; }
+    .gp-session-title { padding: 6px 12px; font-size: 10px; font-weight: 500; color: var(--muted); border-bottom: 0.5px solid var(--border); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .gp-pins { flex: 1; overflow: hidden; padding: 4px 0; }
     .gp-pin { display: flex; align-items: flex-start; gap: 8px; padding: 4px 12px; }
     .gp-pin.active { background: #f0f8eb; }
-    .gp-ts {
-      background: var(--green); color: #fff;
-      font-size: 9px; font-weight: 600; font-family: monospace;
-      padding: 1px 5px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
-    }
+    .gp-ts { background: var(--green); color: #fff; font-size: 9px; font-weight: 600; font-family: monospace; padding: 1px 5px; border-radius: 3px; flex-shrink: 0; margin-top: 1px; }
     .gp-ts.active-ts { background: #27500A; }
     .gp-note { font-size: 11px; color: var(--text); line-height: 1.4; }
     .gp-footer { border-top: 0.5px solid var(--border); padding: 7px 10px; }
-    .gp-pin-input {
-      background: #f8f9f6; border: 0.5px solid var(--border);
-      border-radius: 4px; padding: 4px 8px;
-      font-size: 10px; color: var(--muted); margin-bottom: 6px;
-    }
+    .gp-pin-input { background: #f8f9f6; border: 0.5px solid var(--border); border-radius: 4px; padding: 4px 8px; font-size: 10px; color: var(--muted); margin-bottom: 6px; }
     .gp-actions { display: flex; gap: 5px; justify-content: flex-end; }
-    .gp-action-btn {
-      font-size: 10px; padding: 3px 8px; border-radius: 4px;
-      border: 0.5px solid var(--border); color: var(--muted); cursor: pointer; background: #fff;
-    }
-    .gp-action-btn:first-child {
-      background: var(--green-light); color: var(--green); border-color: #c6e0a8;
-    }
+    .gp-action-btn { font-size: 10px; padding: 3px 8px; border-radius: 4px; border: 0.5px solid var(--border); color: var(--muted); cursor: pointer; background: #fff; }
+    .gp-action-btn:first-child { background: var(--green-light); color: var(--green); border-color: #c6e0a8; }
 
     /* PLATFORMS */
-    .platforms {
-      text-align: center; padding: 24px 24px;
-      border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border);
-      background: var(--bg-alt);
-    }
+    .platforms { text-align: center; padding: 24px; border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); background: var(--bg-alt); }
     .platforms p { font-size: 12px; color: var(--muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.07em; }
     .platform-list { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
     .platform-list span { font-size: 13px; color: var(--muted); font-weight: 500; }
 
     /* FEATURES */
-    .features {
-      max-width: 960px; margin: 0 auto; padding: 72px 24px;
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px;
-    }
+    .features { max-width: 960px; margin: 0 auto; padding: 72px 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; }
     .feature { display: flex; flex-direction: column; gap: 10px; }
-    .feature-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--green-light); display: flex; align-items: center; justify-content: center;
-    }
+    .feature-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--green-light); display: flex; align-items: center; justify-content: center; }
     .feature-icon svg { width: 20px; height: 20px; stroke: var(--green); }
     .feature h3 { font-size: 15px; font-weight: 600; }
     .feature p { font-size: 14px; color: var(--muted); line-height: 1.6; }
@@ -206,17 +154,10 @@
     .steps { display: flex; flex-direction: column; text-align: left; }
     .step { display: flex; gap: 20px; padding: 20px 0; border-bottom: 0.5px solid var(--border); }
     .step:last-child { border-bottom: none; }
-    .step-num {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: var(--green); color: #fff; font-size: 13px; font-weight: 600;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px;
-    }
+    .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--green); color: #fff; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
     .step-text h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
     .step-text p { font-size: 14px; color: var(--muted); line-height: 1.55; }
-    kbd {
-      background: var(--border); padding: 1px 6px; border-radius: 4px;
-      font-size: 12px; font-family: monospace; border: 0.5px solid #ccc;
-    }
+    kbd { background: var(--border); padding: 1px 6px; border-radius: 4px; font-size: 12px; font-family: monospace; border: 0.5px solid #ccc; }
 
     /* CTA */
     .cta { text-align: center; padding: 72px 24px; max-width: 500px; margin: 0 auto; }
@@ -224,11 +165,7 @@
     .cta p { font-size: 15px; color: var(--muted); margin-bottom: 28px; }
 
     /* FOOTER */
-    footer {
-      border-top: 0.5px solid var(--border); padding: 24px 40px;
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: 12px; color: var(--muted); flex-wrap: wrap; gap: 10px;
-    }
+    footer { border-top: 0.5px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--muted); flex-wrap: wrap; gap: 10px; }
     footer a { color: var(--muted); }
     footer a:hover { color: var(--green); text-decoration: none; }
     .footer-links { display: flex; gap: 20px; }
@@ -265,7 +202,7 @@
       <a href="privacy.html">Privacy</a>
       <a href="https://github.com/umbrova/grovepin" target="_blank" rel="noopener">GitHub</a>
     </div>
-    <a href="https://chromewebstore.google.com/detail/grovepin" target="_blank" class="btn btn-primary">Add to Chrome</a>
+    <span class="btn-disabled-nav">Coming to Chrome soon</span>
   </nav>
 
   <section class="hero">
@@ -273,9 +210,10 @@
     <h1>Pin moments in<br/><span>any video</span></h1>
     <p>Timestamped notes for any video. Press <kbd>N</kbd> to pin a thought — video pauses, you type, it resumes.</p>
     <div class="hero-actions">
-      <a href="https://chromewebstore.google.com/detail/grovepin" target="_blank" class="btn btn-primary">Add to Chrome — it's free</a>
+      <span class="btn-disabled-hero">Add to Chrome — it's free</span>
       <a href="https://github.com/umbrova/grovepin" target="_blank" class="btn btn-outline">View on GitHub</a>
     </div>
+    <span class="coming-soon-note">⏳ Pending Chrome Web Store review</span>
   </section>
 
   <!-- HERO MOCKUP -->
@@ -289,8 +227,6 @@
         </div>
       </div>
       <div class="mockup-body">
-
-        <!-- Video -->
         <div class="mockup-video">
           <div class="yt-nav">
             <div class="yt-logo">
@@ -305,35 +241,29 @@
           <div class="video-content">
             <svg class="video-illustration" viewBox="0 0 560 290" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
               <rect width="560" height="290" fill="#0a0a0a"/>
-              <!-- Input nodes -->
               <circle cx="108" cy="55" r="8" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.6"/>
               <circle cx="108" cy="90" r="8" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.6"/>
               <circle cx="108" cy="125" r="8" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.6"/>
               <circle cx="108" cy="160" r="8" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.6"/>
               <circle cx="108" cy="195" r="8" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.6"/>
               <circle cx="108" cy="230" r="8" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.6"/>
-              <!-- Hidden 1 -->
               <circle cx="210" cy="74" r="8" fill="#fff" opacity="0.85"/>
               <circle cx="210" cy="114" r="8" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.4"/>
               <circle cx="210" cy="154" r="8" fill="#fff" opacity="0.85"/>
               <circle cx="210" cy="194" r="8" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.4"/>
-              <!-- Hidden 2 -->
               <circle cx="312" cy="94" r="8" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.5"/>
               <circle cx="312" cy="144" r="8" fill="#fff" opacity="0.9"/>
               <circle cx="312" cy="194" r="8" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.5"/>
-              <!-- Output -->
               <circle cx="414" cy="78"  r="7" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.35"/>
               <circle cx="414" cy="108" r="7" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.35"/>
               <circle cx="414" cy="138" r="7" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.35"/>
               <circle cx="414" cy="168" r="7" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.35"/>
               <circle cx="414" cy="198" r="7" fill="none" stroke="#4FC3F7" stroke-width="1.8" opacity="1"/>
-              <!-- Highlighted connections -->
               <line x1="116" y1="125" x2="202" y2="154" stroke="#FAC775" stroke-width="0.8" opacity="0.5"/>
               <line x1="116" y1="160" x2="202" y2="154" stroke="#FAC775" stroke-width="0.8" opacity="0.5"/>
               <line x1="218" y1="74"  x2="304" y2="144" stroke="#FAC775" stroke-width="1"   opacity="0.6"/>
               <line x1="218" y1="154" x2="304" y2="144" stroke="#FAC775" stroke-width="1"   opacity="0.6"/>
               <line x1="320" y1="144" x2="407" y2="198" stroke="#4FC3F7" stroke-width="1.5" opacity="0.9"/>
-              <!-- Faint connections -->
               <line x1="116" y1="55"  x2="202" y2="74"  stroke="#fff" stroke-width="0.3" opacity="0.1"/>
               <line x1="116" y1="90"  x2="202" y2="114" stroke="#fff" stroke-width="0.3" opacity="0.1"/>
               <line x1="116" y1="195" x2="202" y2="194" stroke="#fff" stroke-width="0.3" opacity="0.1"/>
@@ -341,13 +271,11 @@
               <line x1="218" y1="194" x2="304" y2="194" stroke="#fff" stroke-width="0.3" opacity="0.1"/>
               <line x1="320" y1="94"  x2="407" y2="78"  stroke="#fff" stroke-width="0.3" opacity="0.1"/>
               <line x1="320" y1="194" x2="407" y2="168" stroke="#fff" stroke-width="0.3" opacity="0.1"/>
-              <!-- Labels -->
               <text x="292" y="36"  fill="white" font-size="13" font-family="sans-serif" opacity="0.9"  text-anchor="middle">Neuron</text>
               <text x="292" y="54"  fill="#4FC3F7" font-size="10" opacity="0.85" text-anchor="middle">↓</text>
               <text x="355" y="68"  fill="white"  font-size="10" font-family="sans-serif" opacity="0.75">Thing that holds</text>
               <text x="355" y="82"  fill="white"  font-size="10" font-family="sans-serif" opacity="0.75">a number</text>
               <text x="90"  y="265" fill="white"  font-size="9"  font-family="monospace" opacity="0.4" text-anchor="middle">784</text>
-              <!-- LIVE badge -->
               <rect x="10" y="10" width="34" height="16" rx="3" fill="#3D8A5C"/>
               <text x="27" y="22" fill="white" font-size="7.5" font-family="sans-serif" text-anchor="middle" font-weight="600">LIVE</text>
             </svg>
@@ -361,8 +289,6 @@
             </div>
           </div>
         </div>
-
-        <!-- Grovepin sidebar -->
         <div class="gp-sidebar">
           <div class="gp-header">
             <div class="gp-title">
@@ -397,7 +323,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -415,44 +340,32 @@
   <!-- FEATURES -->
   <section class="features" id="features">
     <div class="feature">
-      <div class="feature-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      </div>
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
       <h3>Timestamped pins</h3>
       <p>Press <kbd>N</kbd> on any video page. The video pauses, you type your thought, press Enter — video resumes exactly where it left off.</p>
     </div>
     <div class="feature">
-      <div class="feature-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
-      </div>
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
       <h3>Works everywhere</h3>
       <p>Any HTML5 video player, on any site. If a video plays in Chrome, Grovepin works on it.</p>
     </div>
     <div class="feature">
-      <div class="feature-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-      </div>
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
       <h3>Jump back instantly</h3>
       <p>Click any timestamp in your notes and the video seeks to that exact moment. Review your pins while the video plays.</p>
     </div>
     <div class="feature">
-      <div class="feature-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-      </div>
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
       <h3>AI summary</h3>
       <p>After 7+ pins, summarise your notes into key points with AI. 10 free summaries per month — no API key needed.</p>
     </div>
     <div class="feature">
-      <div class="feature-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      </div>
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
       <h3>Export to Markdown</h3>
       <p>Download your notes as a clean Markdown file. Paste into Notion, Obsidian, or any note-taking app you already use.</p>
     </div>
     <div class="feature">
-      <div class="feature-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-      </div>
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
       <h3>Private by default</h3>
       <p>All notes stay on your device in local browser storage. Nothing is synced to any server. No account required.</p>
     </div>
@@ -493,9 +406,8 @@
   <section class="cta">
     <h2>Start pinning moments</h2>
     <p>Free to use. No account needed. Works on every video platform you already use.</p>
-    <a href="https://chromewebstore.google.com/detail/grovepin" target="_blank" class="btn btn-primary" style="font-size:15px;padding:14px 28px;">
-      Add Grovepin to Chrome
-    </a>
+    <span class="btn-disabled-cta">Add Grovepin to Chrome</span>
+    <span class="coming-soon-note">⏳ Pending Chrome Web Store review</span>
   </section>
 
   <footer>
