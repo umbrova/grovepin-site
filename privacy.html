@@ -18,37 +18,21 @@
     }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; color: var(--text); background: var(--bg); line-height: 1.7; }
     a { color: var(--green); }
-
-    nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 16px 40px; border-bottom: 0.5px solid var(--border);
-    }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 40px; border-bottom: 0.5px solid var(--border); }
     .nav-logo { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; color: var(--text); text-decoration: none; }
     .nav-logo svg { width: 22px; height: 22px; }
     .nav-back { font-size: 13px; color: var(--muted); text-decoration: none; }
     .nav-back:hover { color: var(--green); }
-
     main { max-width: 680px; margin: 0 auto; padding: 56px 24px 80px; }
     .page-label { font-size: 12px; font-weight: 500; color: var(--green); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
     h1 { font-size: 32px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.02em; }
     .updated { font-size: 13px; color: var(--muted); margin-bottom: 48px; padding-bottom: 24px; border-bottom: 0.5px solid var(--border); }
-
     h2 { font-size: 18px; font-weight: 600; margin: 36px 0 10px; }
     p { font-size: 15px; color: #3a3a38; margin-bottom: 14px; line-height: 1.7; }
     ul { padding-left: 20px; margin-bottom: 14px; }
     ul li { font-size: 15px; color: #3a3a38; margin-bottom: 6px; line-height: 1.6; }
-
-    .highlight {
-      background: var(--green-light); border-left: 3px solid var(--green);
-      padding: 14px 18px; border-radius: 0 6px 6px 0;
-      margin: 24px 0; font-size: 15px; color: #27500A; line-height: 1.6;
-    }
-
-    footer {
-      border-top: 0.5px solid var(--border); padding: 20px 40px;
-      font-size: 12px; color: var(--muted);
-      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
-    }
+    .highlight { background: var(--green-light); border-left: 3px solid var(--green); padding: 14px 18px; border-radius: 0 6px 6px 0; margin: 24px 0; font-size: 15px; color: #27500A; line-height: 1.6; }
+    footer { border-top: 0.5px solid var(--border); padding: 20px 40px; font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
     footer a { color: var(--muted); }
     footer a:hover { color: var(--green); }
   </style>
@@ -76,7 +60,7 @@
   <main>
     <p class="page-label">Legal</p>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: June 2026</p>
+    <p class="updated">Last updated: August 2026</p>
 
     <div class="highlight">
       <strong>Short version:</strong> Grovepin stores your notes locally on your device. We do not collect, sell, or share your personal data. The only external network request is the optional AI summarise feature, which sends only your note text — nothing else.
@@ -89,8 +73,9 @@
     <p>All data created by Grovepin is stored locally on your device using <code>chrome.storage.local</code>. This includes:</p>
     <ul>
       <li>Your timestamped notes (pins) and their text</li>
+      <li>AI summaries generated for your sessions</li>
       <li>Session information — video URL, video title, platform name</li>
-      <li>Extension settings — keyboard shortcut preference, theme</li>
+      <li>Extension settings — keyboard shortcut preference, theme, enabled domains</li>
     </ul>
     <p>This data <strong>never leaves your device</strong> except as described in Section 4 (AI summarise). It is not transmitted to Umbrova or any third party. It is not backed up to the cloud. Uninstalling the extension permanently deletes all stored data.</p>
 
@@ -113,17 +98,18 @@
       <li>An anonymous identifier derived from your Chrome extension installation ID (not linked to your Google account or any personal information)</li>
     </ul>
     <p>This data is used solely to generate a summary using the Anthropic Claude AI model. <strong>We do not store your notes on our servers.</strong> The request is processed and the response is returned immediately — nothing is logged or retained.</p>
+    <p>The generated summary is saved locally on your device alongside your pins. It is not stored on our servers.</p>
     <p>The anonymous installation ID is used only for rate limiting (10 free summaries per month per installation). It cannot be used to identify you personally.</p>
     <p>Anthropic processes the note text as part of generating the summary. Their privacy policy is available at <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a>.</p>
 
     <h2>5. Permissions</h2>
     <p>Grovepin requests the following Chrome permissions and uses them as follows:</p>
     <ul>
-      <li><strong>storage</strong> — to save your notes locally on your device</li>
+      <li><strong>storage</strong> — to save your notes, summaries, and settings locally on your device</li>
       <li><strong>tabs</strong> — to detect which tab is active when opening the popup</li>
       <li><strong>activeTab</strong> — to inject the sidebar into the current video page</li>
       <li><strong>scripting</strong> — to run the sidebar content script on video pages</li>
-      <li><strong>host_permissions (&lt;all_urls&gt;)</strong> — to detect video elements and inject the sidebar on any video platform the user visits, including platforms not known at install time</li>
+      <li><strong>host_permissions (&lt;all_urls&gt;)</strong> — to detect video elements and inject the sidebar on any video platform the user visits or enables, including platforms not known at install time</li>
     </ul>
     <p>These permissions are used only for the core functionality described above and for no other purpose.</p>
 

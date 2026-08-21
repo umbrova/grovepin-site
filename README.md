@@ -1,8 +1,8 @@
 # grovepin-site
 
-Landing page and privacy policy for [Grovepin](https://github.com/silvonix/grovepin).
+Landing page and privacy policy for [Grovepin](https://github.com/umbrova/grovepin).
 
-Hosted on Cloudflare Pages at [grovepin.silvonix.workers.dev](https://grovepin.silvonix.workers.dev/)
+Deployed on Cloudflare Workers at [grovepin.umbrova.com](https://grovepin.umbrova.com)
 
 ## Pages
 
@@ -11,9 +11,7 @@ Hosted on Cloudflare Pages at [grovepin.silvonix.workers.dev](https://grovepin.s
 
 ## Deploy
 
-Connected to Cloudflare Pages via GitHub. Every push to `main` auto-deploys.
-
-Manual deploy: Cloudflare Dashboard → Pages → grovepin → Deploy.
+Deployed via Cloudflare Workers dashboard. Upload `index.html`, `privacy.html`, and `favicon.svg` directly to the Worker's static assets.
 
 ## Local preview
 

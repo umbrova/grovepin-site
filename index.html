@@ -52,14 +52,6 @@
     }
     .btn-outline { border: 1px solid var(--border); color: var(--text) !important; background: transparent; }
     .btn-outline:hover { border-color: var(--green); color: var(--green) !important; }
-
-    /* Disabled nav button */
-    .btn-disabled-nav {
-      display: inline-flex; align-items: center;
-      padding: 8px 18px; border-radius: 6px; font-size: 13px;
-      font-weight: 500; background: #EDEAE4; color: #9E9080;
-      cursor: not-allowed; user-select: none;
-    }
     .btn-nav {
       display: inline-flex; align-items: center;
       padding: 8px 18px; border-radius: 6px; font-size: 13px;
@@ -67,14 +59,6 @@
       text-decoration: none !important;
     }
     .btn-nav:hover { background: #2d5a0d; }
-
-    /* Disabled hero CTA — matches original hero .btn sizing */
-    .btn-disabled-hero {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 12px 24px; border-radius: 6px; font-size: 14px;
-      font-weight: 500; background: #EDEAE4; color: #9E9080;
-      cursor: not-allowed; user-select: none;
-    }
     .btn-hero {
       display: inline-flex; align-items: center; gap: 6px;
       padding: 12px 24px; border-radius: 6px; font-size: 14px;
@@ -82,14 +66,6 @@
       text-decoration: none !important;
     }
     .btn-hero:hover { background: #2d5a0d; }
-
-    /* Disabled CTA section button — matches original large CTA */
-    .btn-disabled-cta {
-      display: inline-flex; align-items: center;
-      font-size: 15px; padding: 14px 28px; border-radius: 6px;
-      font-weight: 500; background: #EDEAE4; color: #9E9080;
-      cursor: not-allowed; user-select: none;
-    }
     .btn-cta {
       display: inline-flex; align-items: center;
       font-size: 15px; padding: 14px 28px; border-radius: 6px;
@@ -97,11 +73,6 @@
       text-decoration: none !important;
     }
     .btn-cta:hover { background: #2d5a0d; }
-
-    .coming-soon-note {
-      margin-top: 10px; font-size: 12px; color: var(--green); font-weight: 500;
-      display: block; text-align: center;
-    }
 
     /* HERO */
     .hero { text-align: center; padding: 80px 24px 48px; max-width: 680px; margin: 0 auto; }
@@ -232,7 +203,7 @@
     <p>Timestamped notes for any video. Press <kbd>N</kbd> to pin a thought — video pauses, you type, it resumes.</p>
     <div class="hero-actions">
       <a href="https://chromewebstore.google.com/detail/grovepin/jhekobecppdnbaeceolkmninlkfkhngl" target="_blank" rel="noopener" class="btn-hero">Add to Chrome — it's free</a>
-      <a href="https://github.com/umbrova/grovepin" target="_blank" class="btn btn-outline">View on GitHub</a>
+      <a href="https://github.com/umbrova/grovepin" target="_blank" class="btn-outline btn">View on GitHub</a>
     </div>
   </section>
 
@@ -250,10 +221,7 @@
         <div class="mockup-video">
           <div class="yt-nav">
             <div class="yt-logo">
-              <svg width="16" height="11" viewBox="0 0 90 63" fill="none">
-                <rect width="90" height="63" rx="13" fill="#FF0000"/>
-                <polygon points="36,15 36,48 63,31.5" fill="white"/>
-              </svg>
+              <svg width="16" height="11" viewBox="0 0 90 63" fill="none"><rect width="90" height="63" rx="13" fill="#FF0000"/><polygon points="36,15 36,48 63,31.5" fill="white"/></svg>
               <span>YouTube</span>
             </div>
             <div class="yt-search">Search</div>
@@ -274,28 +242,28 @@
               <circle cx="312" cy="94" r="8" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.5"/>
               <circle cx="312" cy="144" r="8" fill="#fff" opacity="0.9"/>
               <circle cx="312" cy="194" r="8" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.5"/>
-              <circle cx="414" cy="78"  r="7" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.35"/>
+              <circle cx="414" cy="78" r="7" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.35"/>
               <circle cx="414" cy="108" r="7" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.35"/>
               <circle cx="414" cy="138" r="7" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.35"/>
               <circle cx="414" cy="168" r="7" fill="none" stroke="#fff" stroke-width="1.1" opacity="0.35"/>
               <circle cx="414" cy="198" r="7" fill="none" stroke="#4FC3F7" stroke-width="1.8" opacity="1"/>
               <line x1="116" y1="125" x2="202" y2="154" stroke="#FAC775" stroke-width="0.8" opacity="0.5"/>
               <line x1="116" y1="160" x2="202" y2="154" stroke="#FAC775" stroke-width="0.8" opacity="0.5"/>
-              <line x1="218" y1="74"  x2="304" y2="144" stroke="#FAC775" stroke-width="1"   opacity="0.6"/>
-              <line x1="218" y1="154" x2="304" y2="144" stroke="#FAC775" stroke-width="1"   opacity="0.6"/>
+              <line x1="218" y1="74" x2="304" y2="144" stroke="#FAC775" stroke-width="1" opacity="0.6"/>
+              <line x1="218" y1="154" x2="304" y2="144" stroke="#FAC775" stroke-width="1" opacity="0.6"/>
               <line x1="320" y1="144" x2="407" y2="198" stroke="#4FC3F7" stroke-width="1.5" opacity="0.9"/>
-              <line x1="116" y1="55"  x2="202" y2="74"  stroke="#fff" stroke-width="0.3" opacity="0.1"/>
-              <line x1="116" y1="90"  x2="202" y2="114" stroke="#fff" stroke-width="0.3" opacity="0.1"/>
+              <line x1="116" y1="55" x2="202" y2="74" stroke="#fff" stroke-width="0.3" opacity="0.1"/>
+              <line x1="116" y1="90" x2="202" y2="114" stroke="#fff" stroke-width="0.3" opacity="0.1"/>
               <line x1="116" y1="195" x2="202" y2="194" stroke="#fff" stroke-width="0.3" opacity="0.1"/>
-              <line x1="218" y1="114" x2="304" y2="94"  stroke="#fff" stroke-width="0.3" opacity="0.1"/>
+              <line x1="218" y1="114" x2="304" y2="94" stroke="#fff" stroke-width="0.3" opacity="0.1"/>
               <line x1="218" y1="194" x2="304" y2="194" stroke="#fff" stroke-width="0.3" opacity="0.1"/>
-              <line x1="320" y1="94"  x2="407" y2="78"  stroke="#fff" stroke-width="0.3" opacity="0.1"/>
+              <line x1="320" y1="94" x2="407" y2="78" stroke="#fff" stroke-width="0.3" opacity="0.1"/>
               <line x1="320" y1="194" x2="407" y2="168" stroke="#fff" stroke-width="0.3" opacity="0.1"/>
-              <text x="292" y="36"  fill="white" font-size="13" font-family="sans-serif" opacity="0.9"  text-anchor="middle">Neuron</text>
-              <text x="292" y="54"  fill="#4FC3F7" font-size="10" opacity="0.85" text-anchor="middle">↓</text>
-              <text x="355" y="68"  fill="white"  font-size="10" font-family="sans-serif" opacity="0.75">Thing that holds</text>
-              <text x="355" y="82"  fill="white"  font-size="10" font-family="sans-serif" opacity="0.75">a number</text>
-              <text x="90"  y="265" fill="white"  font-size="9"  font-family="monospace" opacity="0.4" text-anchor="middle">784</text>
+              <text x="292" y="36" fill="white" font-size="13" font-family="sans-serif" opacity="0.9" text-anchor="middle">Neuron</text>
+              <text x="292" y="54" fill="#4FC3F7" font-size="10" opacity="0.85" text-anchor="middle">↓</text>
+              <text x="355" y="68" fill="white" font-size="10" font-family="sans-serif" opacity="0.75">Thing that holds</text>
+              <text x="355" y="82" fill="white" font-size="10" font-family="sans-serif" opacity="0.75">a number</text>
+              <text x="90" y="265" fill="white" font-size="9" font-family="monospace" opacity="0.4" text-anchor="middle">784</text>
               <rect x="10" y="10" width="34" height="16" rx="3" fill="#3D8A5C"/>
               <text x="27" y="22" fill="white" font-size="7.5" font-family="sans-serif" text-anchor="middle" font-weight="600">LIVE</text>
             </svg>
@@ -367,27 +335,37 @@
     <div class="feature">
       <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg></div>
       <h3>Works everywhere</h3>
-      <p>Any HTML5 video player, on any site. If a video plays in Chrome, Grovepin works on it.</p>
+      <p>Activates on popular video sites by default. Enable on any other site in one click from the popup — no settings page needed.</p>
     </div>
     <div class="feature">
       <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>
       <h3>Jump back instantly</h3>
-      <p>Click any timestamp in your notes and the video seeks to that exact moment. Review your pins while the video plays.</p>
+      <p>Click any timestamp in your notes and the video seeks to that exact moment and resumes playing.</p>
     </div>
     <div class="feature">
       <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
       <h3>AI summary</h3>
-      <p>After 7+ pins, summarise your notes into key points with AI. 10 free summaries per month — no API key needed.</p>
+      <p>After 7+ pins, summarise your notes into key points with AI. Summary is saved with your session. 10 free summaries per month — no API key needed.</p>
     </div>
     <div class="feature">
       <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
       <h3>Export to Markdown</h3>
-      <p>Download your notes as a clean Markdown file. Paste into Notion, Obsidian, or any note-taking app you already use.</p>
+      <p>Download your pins and AI summary as a clean Markdown file. Paste into Notion, Obsidian, or any note app you already use.</p>
     </div>
     <div class="feature">
       <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
       <h3>Private by default</h3>
       <p>All notes stay on your device in local browser storage. Nothing is synced to any server. No account required.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
+      <h3>Dark mode</h3>
+      <p>Follows your system preference automatically. Switch between light, dark, and auto in Settings.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M3 9h6"/></svg></div>
+      <h3>Site control</h3>
+      <p>Enable or disable Grovepin on any site directly from the popup. Built-in support for YouTube, Vimeo, Coursera, Udemy, Loom, and more.</p>
     </div>
   </section>
 
@@ -415,7 +393,7 @@
           <div class="step-num">3</div>
           <div class="step-text">
             <h4>Review, jump, export</h4>
-            <p>Click any timestamp to jump back. After 7+ pins, summarise with AI. Export your notes as Markdown anytime.</p>
+            <p>Click any timestamp to jump back and play from that moment. After 7+ pins, summarise with AI. Export your notes and summary as Markdown anytime.</p>
           </div>
         </div>
       </div>
